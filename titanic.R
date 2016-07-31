@@ -1,9 +1,7 @@
-train_url <- "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
-train <- read.csv(train_url)
+train <- read.csv("train.csv",header=T)
 
 # Import the testing set: test
-test_url <- "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/test.csv"
-test <- read.csv(test_url)
+test <- read.csv("test.csv",header=T)
 
 # Print train and test to the console
 train
@@ -49,3 +47,6 @@ test_one$Survived<-0
 
 # Set Survived to 1 if Sex equals "female"
 test_one$Survived[test_one$Sex == "female"] <-1
+
+test_two<-test_one[c(1,12)]
+write.csv(test_two,"my_solution.csv",row.names = F)
